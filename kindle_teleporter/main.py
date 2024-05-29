@@ -1,5 +1,5 @@
 import time
-from watchdog.observers import Observer
+from watchdog.observers.polling import PollingObserver
 from watchdog.events import PatternMatchingEventHandler
 from os import environ
 import stkclient
@@ -56,7 +56,7 @@ def run(path: str, recursive: bool=False):
     case_sensitive = True
     event_handler = PatternMatchingEventHandler(patterns=patterns, ignore_patterns=ignore_patterns, ignore_directories=ignore_directories, case_sensitive=case_sensitive)
     event_handler.on_created = on_created
-    observer = Observer()
+    observer = PollingObserver()
     observer.schedule(event_handler=event_handler, path=path, recursive=recursive)
     observer.start()
     try:
