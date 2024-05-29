@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "kindle-teleporter"
+version = "0.1.0"
+description = "Utility that watches a directory for ebooks and teleports them to your kindle"
+authors = ["Jonathan Malek <saxmfone1@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+watchdog = "^4.0.1"
+fire = "^0.6.0"
+stkclient = "^0.1.1"
+ebooklib = "^0.18"
+
+[tool.poetry.scripts]
+kindle-teleporter = "kindle_teleporter.main:cmd"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
